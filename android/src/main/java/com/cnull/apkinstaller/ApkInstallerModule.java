@@ -58,19 +58,19 @@ public class ApkInstallerModule extends ReactContextBaseJavaModule {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N){
             myuri = Uri.parse("file://"+path);
         } else {
-            Log,d(Tag,"path is " + path);
+            Log.d(Tag,"path is " + path);
             File o = new File(path);
-            Log,d(Tag,"o is " + o);
+            Log.d(Tag,"o is " + o);
             if (o.exists()) {
-                Log,d(Tag,"file does exist");
-                Log,d(Tag,"o.getName()" + o.getName());
+                Log.d(Tag,"file does exist");
+                Log.d(Tag,"o.getName()" + o.getName());
             }
 
 
-            Log,d(Tag,"_context is " + _context);
-            Log,d(Tag,"_context.getApplicationContext().getPackageName() + \".provider\" is " + _context.getApplicationContext().getPackageName() + ".provider");
+            Log.d(Tag,"_context is " + _context);
+            Log.d(Tag,"_context.getApplicationContext().getPackageName() + \".provider\" is " + _context.getApplicationContext().getPackageName() + ".provider");
             myuri = FileProvider.getUriForFile(_context, _context.getApplicationContext().getPackageName() + ".provider", o);
-            Log,d(Tag,"myuri is " + myuri);
+            Log.d(Tag,"myuri is " + myuri);
         }
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_GRANT_READ_URI_PERMISSION);
